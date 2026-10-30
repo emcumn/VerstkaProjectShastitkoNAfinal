@@ -46,7 +46,6 @@ a:hover { color: #f21824; }
     width: 100%;
     height: 100%;
     display: block;
-    object-fit: cover;
     object-position: center center;
 }
 .vector { position: absolute; pointer-events: none; }
@@ -175,7 +174,7 @@ a:hover { color: #f21824; }
     line-height: 1.25;
     margin: 0 0 135px;
 }
-.team .side-leaf.left { left: 710px; top: -80px; transform: rotate(70deg); }
+.team .side-leaf.left { left: 510px; top:   -60px; transform: rotate(70deg); }
 .team .side-leaf.right { right: 60px; top: -10px; }
 .people { display: flex; justify-content: center; gap: 45px; width: 100%; }
 .person {
