@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+/* Макет Figma: ширина 1440 px, высота 6500 px.
+   При ширине экрана меньше 1440 сайт уменьшается целиком,
+   не меняя расположение элементов относительно друг друга. */
+:root {
+    --red: #a90016;
+    --white: #eeeae0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    background: #000;
+    color: var(--white);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+}
+a { color: inherit; text-decoration: none; }
+a:hover { color: #f21824; }
+[lang="en"] { font-family: Cinzel, Georgia, serif; }
+
+/* Общая ширина всех частей сайта */
+.header, .hero, .page, footer {
+    width: 1440px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.header {
+    height: 110px;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo { font: 55px Cinzel, serif; }
+.header nav {
+    display: flex;
+    align-items: center;
+    gap: 75px;
+    font-size: 24px;
+}
+
+/* Первый экран */
+.hero { height: 902px; position: relative; overflow: hidden; }
+.hero > img:not(.vector) {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+}
+.vector { position: absolute; pointer-events: none; }
+.hero-top { top: -15px; left: 0; width: 100%; height: 31px; }
+.hero-content { position: absolute; inset: 0; text-align: center; pointer-events: none; }
+.hero h1 {
+    position: absolute;
+    top: 220px;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    color: white;
+    font: 70px Cinzel, serif;
+    text-shadow: 4px 5px 1px #111;
+}
+.ticket {
+    position: absolute;
+    top: 640px;
+    left: 50%;
+    transform: translateX(-50%) skew(-14deg);
+    padding: 14px 32px;
+    background: #ef0000;
+    color: #000;
+    font: 39px/1.2 Cinzel, serif;
+    white-space: nowrap;
+    pointer-events: auto;
+}
+
+/* Основное содержимое: колонны — отдельно от текста */
+.page { position: relative; overflow: hidden; }
+.column-decoration {
+    position: absolute;
+    left: 38px;
+    top: 130px;
+    width: 359px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    z-index: 3;
+    pointer-events: none;
+}
+.column-decoration img {
+    width: 359px;
+    height: 886px;
+    display: block;
+    flex-shrink: 0;
+}
+.section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-left: 410px;
+    padding-right: 50px;
+}
+.section h2 { font-weight: 400; }
+.section p { font-size: 30px; line-height: 1.12; }
+
+/* Фестиваль */
+.festival { height: 1030px; padding-top: 95px; }
+.festival-label {
+    position: absolute;
+    left: 75px;
+    top: 30px;
+    margin: 0;
+    font: 55px Cinzel, serif;
+}
+.festival-content { width: 100%; }
+.festival-content h2 { margin: 20px 0 70px; font-size: 43px; }
+.festival-content p { margin: 36px auto; }
+.sprig-top { top: 60px; right: 145px; width: 75px; height: 113px; }
+.sprig-bottom { bottom: 90px; right: 135px; width: 113px; height: 75px; }
+
+/* Состязания */
+.activities { height: 1030px; padding-top: 105px; }
+.activities h2 {
+    color: var(--red);
+    font-size: 53px;
+    margin: 0 0 65px;
+}
+.activity-grid {
+    width: 100%;
+    max-width: 920px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 28px;
+}
+.activity-grid img { grid-column: span 2; display: block; width: 100%; }
+.activity-grid img.wide { grid-column: span 3; }
+.greek-pattern { height: 61px; position: relative; z-index: 4; }
+.greek-pattern img { display: block; width: 100%; height: 61px; }
+
+/* История */
+.history { height: 1030px; padding-top: 115px; }
+.history h2 {
+    color: var(--red);
+    font-size: 57px;
+    line-height: 1.15;
+    margin: 0 0 130px;
+}
+.history p { margin: 40px auto; }
+.history-leaf { top: 80px; left: 345px; width: 234px; height: 185px; }
+.history-leaf-right { top: 430px; right: 110px; width: 46px; height: 82px; }
+.history-leaf-right.lower { top: 830px; right: 55px; }
+
+/* О нас */
+.about { height: 930px; padding-top: 160px; }
+.about h2 {
+    color: var(--red);
+    font-size: 61px;
+    line-height: 1.2;
+    margin: 0 0 125px;
+}
+.about p { margin: 22px auto; }
+.side-leaf.left { left: 330px; top: 95px; width: 138px; height: 268px; }
+.side-leaf.right { right: 70px; top: 95px; width: 119px; height: 276px; }
+.red-wave { height: 77px; position: relative; z-index: 5; }
+.red-wave img { display: block; width: 100%; height: 77px; }
+
+/* Команда */
+.team { height: 950px; padding-top: 140px; }
+.team h2 {
+    color: var(--red);
+    font-size: 43px;
+    line-height: 1.25;
+    margin: 0 0 135px;
+}
+.team .side-leaf.left { left: 710px; top: -125px; transform: rotate(70deg); }
+.team .side-leaf.right { right: 60px; top: -10px; }
+.people { display: flex; justify-content: center; gap: 45px; width: 100%; }
+.person {
+    position: relative;
+    width: 280px;
+    height: 312px;
+    padding-top: 235px;
+    background: var(--white);
+    color: #000;
+    font: 18px Cinzel, serif;
+}
+.person img {
+    position: absolute;
+    top: -62px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 227px;
+    height: 227px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+/* Нижняя волна — такая же, как разделитель выше, но перевёрнутая. */
+.red-fence {
+    width: 100%;
+    height: 77px;
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
+}
+.red-fence img {
+    display: block;
+    width: 100%;
+    height: 77px;
+    transform: rotate(180deg);
+}
+
+/* Подвал */
+footer {
+    min-height: 225px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 55px;
+    padding: 30px 70px 30px 410px;
+}
+footer h3 { margin: 0 0 15px; font-size: 36px; font-weight: 400; }
+footer p { margin: 0; font-size: 24px; }
+footer .footer-mark img { width: 210px; max-width: 100%; }
+
+/* На телефоне элементы располагаются друг под другом */
+@media (max-width: 700px) {
+    .header { height: auto; padding: 16px; flex-direction: column; gap: 12px; }
+    .logo { font-size: 42px; }
+    .header nav { gap: 18px; flex-wrap: wrap; justify-content: center; font-size: 19px; }
+    .hero { height: 450px; }
+    .hero h1 { top: 105px; font-size: 52px; }
+    .ticket { top: 300px; padding: 12px 18px; font-size: 16px; }
+    .column-decoration { display: none; }
+    .section { height: auto; padding: 65px 18px; }
+    .section p { font-size: 22px; }
+    .section p br { display: none; }
+    .section h2 { font-size: 35px; margin-bottom: 35px; }
+    .festival-label { position: static; }
+    .activity-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .activity-grid img, .activity-grid img.wide { grid-column: span 1; }
+    .vector:not(.hero-top) { display: none; }
+    .people { flex-wrap: wrap; gap: 85px 15px; padding-top: 50px; }
+    .person { width: 45%; height: 230px; padding-top: 175px; }
+    .person img { width: 150px; height: 150px; top: -30px; }
+    footer { flex-wrap: wrap; padding: 30px; gap: 25px; }
+}
+
+/* Декор не должен перекрывать подписи и фотографии */
+.team .people, .team h2 { position: relative; z-index: 2; }
+.team .side-leaf { z-index: 1; }
